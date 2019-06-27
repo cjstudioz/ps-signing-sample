@@ -86,6 +86,8 @@ public class SigningExample {
 
     String encodedPublicKey = new String(Base64.getEncoder().encode(signingKey.getPublic().getEncoded()));
     System.out.println(encodedPublicKey);
+    String encodedPrivateKey = new String(Base64.getEncoder().encode(signingKey.getPrivate().getEncoded()));
+    System.out.println(encodedPrivateKey);
 
     FileUtils.writeByteArrayToFile(new File(privateKeyPath), privateKeyBytes);
     FileUtils.writeByteArrayToFile(new File(publicKeyPath), publicKeyBytes);
