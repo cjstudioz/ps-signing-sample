@@ -27,6 +27,7 @@ public class KeySigningExample {
       String newKeySha512Digest = Base64.getEncoder().encodeToString(messageDigest.digest(newEncodedKeyPayload.getBytes()));
 
       String uploadStringToSign = "Date: " + currentDateAsString + "\nDigest: " + newKeySha512Digest;
+      System.out.println(uploadStringToSign);
 
       Signature instance = Signature.getInstance("SHA512withRSA");
       instance.initSign(uploadPrivateKey);
