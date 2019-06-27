@@ -46,8 +46,8 @@ public class SigningExample {
   private static final String HOSTNAME = "https://payment-api-sandbox.starlingbank.com";
   private final String privateKeyPath = "PATH_TO_PRIVATE_KEY";
   private final String publicKeyPath = "PATH_TO_PUBLIC_KEY";
-  private final String apiKeyUid = "YOUR_API_KEY_UID_FROM_SPS_PORTAL";
-  private final String paymentBusinessUid = "YOUR_PAYMENT_BUSINESS_UID_FROM_SPS_PORTAL";
+  private final String apiKeyUid = "d88bad5d-db83-464f-a3cd-3e73f49d6f97"; //"218f55af-6533-4595-a3f3-e4d958202031";
+  private final String paymentBusinessUid = "b9352afd-13ae-4c03-99f0-42f46bd98b20";
   private final String sortCode = "YOUR_ALLOCATED_SORT_CODE_FROM_SPS_PORTAL";
   private final String accountUid = "ACCOUNT_UID_ONCE_CREATE_ACCOUNT_HAS_BEEN_EXECUTED";
   private final String addressUid = "ADDRESS_UID_ONCE_CREATE_ADDRESS_HAS_BEEN_EXECUTED";
@@ -109,10 +109,11 @@ public class SigningExample {
 //    String resourcePath = "/api/v1/" + paymentBusinessUid + "/account/" + accountUid + "/address";
 
     String textToSign = "(request-target): " + httpMethod + " " + resourcePath + "\nDate: " + timestamp + "\nDigest: " + digest;
+    System.out.println(textToSign);
 
-    // Calculate the authorisation header
+      // Calculate the authorisation header
     String authorisationHeader = calculateAuthorisationHeader(privateKey, textToSign);
-
+    System.out.println(authorisationHeader);
     // Make the HTTP request
     HttpClient httpClient = HttpClientBuilder.create()
         .setDefaultHeaders(Arrays.asList(
@@ -127,6 +128,7 @@ public class SigningExample {
 
     HttpResponse response = httpClient.execute(get);
     assertThat(response.getStatusLine().getStatusCode()).isEqualTo(200);
+    System.out.println("gotten result");
     System.out.println(IOUtils.toString(response.getEntity().getContent(), "utf-8"));
   }
 
