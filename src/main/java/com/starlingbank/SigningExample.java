@@ -46,7 +46,7 @@ public class SigningExample {
   private static final String HOSTNAME = "https://payment-api-sandbox.starlingbank.com";
   private final String privateKeyPath = "PATH_TO_PRIVATE_KEY";
   private final String publicKeyPath = "PATH_TO_PUBLIC_KEY";
-  private final String apiKeyUid = "d88bad5d-db83-464f-a3cd-3e73f49d6f97"; //"218f55af-6533-4595-a3f3-e4d958202031";
+  private final String apiKeyUid = "218f55af-6533-4595-a3f3-e4d958202031"; //"218f55af-6533-4595-a3f3-e4d958202031" d88bad5d-db83-464f-a3cd-3e73f49d6f97
   private final String paymentBusinessUid = "b9352afd-13ae-4c03-99f0-42f46bd98b20";
   private final String sortCode = "YOUR_ALLOCATED_SORT_CODE_FROM_SPS_PORTAL";
   private final String accountUid = "ACCOUNT_UID_ONCE_CREATE_ACCOUNT_HAS_BEEN_EXECUTED";
