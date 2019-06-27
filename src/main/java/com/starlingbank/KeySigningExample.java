@@ -22,6 +22,7 @@ public class KeySigningExample {
     try {
       String newEncodedKeyPayload = new String(Base64.getEncoder().encode(paymentPublicKey.getEncoded()));
       String currentDateAsString = uploadTime.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+      System.out.println(currentDateAsString);
 
       MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
       String newKeySha512Digest = Base64.getEncoder().encodeToString(messageDigest.digest(newEncodedKeyPayload.getBytes()));
